@@ -1,7 +1,7 @@
 .container{
     width: 70%;
-    height: 70vh;
-    margin: 70px auto;
+    height: 80vh;
+    margin: 50px auto;
     padding-top: 80px;
     border-radius: 12px;
     background: rgb(57, 188, 240);
@@ -25,7 +25,7 @@
     font-weight: 500;
 }
 
-.search-icon{
+.search_icon{
     width: 70px;
     height: 70px;
     display: flex;
@@ -36,9 +36,59 @@
     cursor: pointer;
 }
 
-.search-icon img{
+.search_icon img{
     width: 40px;
     height: 40px;
 }
 
+.weater_img{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
 
+.weater_img img{
+    width: 80px;
+}
+
+.temperature{
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 80px;
+    font-weight: 600;
+}
+
+.location{
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.datawrap{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+}
+
+.data_element{
+    margin: auto;
+    display: flex;
+    gap: 18px;
+}
+
+.icon{
+    margin-top: 10px;
+}
+.data{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.text{
+    font-size: 20px;
+    font-weight: 300
+}

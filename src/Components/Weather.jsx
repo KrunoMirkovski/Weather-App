@@ -16,9 +16,30 @@ const WeatherApp = () => {
     return (
         <div className="container">
             <div className="top">
-                <input type="text" className="city" placeholder="Search" />
-                <div className="search-icon">
+                <input type="text" className="city" placeholder="Enter City Name" />
+                <div className="search_icon">
                     <img src={search_icon} alt="" />
+                </div>
+            </div>
+            <div className="weater_img">
+                <img src={sunny_icon} alt=""/>
+            </div>
+            <div className="temperature">32°C</div>
+            <div className="location">Skopje</div>
+            <div className="datawrap">
+                <div className="data_element">
+                    <img src={humidity_icon} alt="" className="icon"/>
+                    <div className="data">
+                        <div className="humidity">47%</div>
+                        <div className="text">Humidity</div>
+                    </div>
+                </div>
+                <div className="data_element">
+                    <img src={wind_icon} alt="" className="icon"/>
+                    <div className="data">
+                        <div className="humidity">8km/h</div>
+                        <div className="text">Wind Speed</div>
+                    </div>
                 </div>
             </div>
         </div>
