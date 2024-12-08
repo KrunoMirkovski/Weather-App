@@ -11,17 +11,7 @@ import snow_icon from "./Assets/icons8-snow-48.png";
 import thunder_icon from "./Assets/icons8-storm-48.png";
 import drizzle_icon from "./Assets/icons8-drizzle-48.png";
 import mist_icon from "./Assets/icons8-mist-48.png";
-
-// Mapping of weather conditions to icons
-const weatherIcons = {
-    Clear: sunny_icon,
-    Clouds: cloud_icon,
-    Rain: rain_icon,
-    Snow: snow_icon,
-    Thunderstorm: thunder_icon,
-    Drizzle: drizzle_icon,
-    Mist: mist_icon
-  };
+import night_icon from "./Assets/icons8-night-48.png";
 
 
 
@@ -52,19 +42,41 @@ const WeatherApp = () => {
             }
       
             const data = await response.json();
+
+             // Determine the icon based on the weather condition and time of day
+      const iconCode = data.weather[0].icon;
+      const weatherIcons = {
+        "01d": sunny_icon, // Clear sky (day)
+        "01n": night_icon, // Clear sky (night)
+        "02d": cloud_icon, // Few clouds (day)
+        "02n": cloud_icon, // Few clouds (night)
+        "03d": cloud_icon, // Scattered clouds (day)
+        "03n": cloud_icon, // Scattered clouds (night)
+        "04d": cloud_icon, // Broken clouds (day)
+        "04n": cloud_icon, // Broken clouds (night)
+        "09d": drizzle_icon, // Drizzle (day)
+        "09n": drizzle_icon, // Drizzle (night)
+        "10d": rain_icon, // Rain (day)
+        "10n": rain_icon, // Rain (night)
+        "11d": thunder_icon, // Thunderstorm (day)
+        "11n": thunder_icon, // Thunderstorm (night)
+        "13d": snow_icon, // Snow (day)
+        "13n": snow_icon, // Snow (night)
+        "50d": mist_icon, // Mist (day)
+        "50n": mist_icon, // Mist (night),
+      };
       
             // Determine the icon based on the weather condition
-      const weatherCondition = data.weather[0].main;
-      const icon = weatherIcons[weatherCondition] || "./Assets/icons8-unknown-48.png";
+            const icon = weatherIcons[iconCode] || "./Assets/icons8-unknown-48.png";
 
             // Update state with weather data
             setWeatherData({
-              temperature: data.main.temp,
+              temperature: Math.round(data.main.temp), // Rounded temperature
               humidity: data.main.humidity,
               windSpeed: data.wind.speed,
               location: data.name,
               icon,
-              condition: weatherCondition,
+              condition: data.weather[0].description,
             });
       
             setError(""); // Clear any previous error
