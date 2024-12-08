@@ -97,6 +97,7 @@ const WeatherApp = () => {
           placeholder="Enter City Name"
           value={city}
           onChange={(e) => setCity(e.target.value)} // Update city state
+          onKeyDown={(e) => e.key === "Enter" && search()} // Trigger search on Enter
         />
         <div className="search_icon" onClick={search}>
           <img src={search_icon} alt="Search Icon" />
